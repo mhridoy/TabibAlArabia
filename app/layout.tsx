@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Oswald, Noto_Naskh_Arabic } from "next/font/google"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -8,6 +8,8 @@ import { LanguageSwitcher } from "@/components/language-switcher"
 import { BackgroundElements } from "@/components/background-elements"
 
 const inter = Inter({ subsets: ["latin"] })
+const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" })
+const notoNaskhArabic = Noto_Naskh_Arabic({ subsets: ["arabic"], variable: "--font-noto-naskh-arabic" })
 
 export const metadata: Metadata = {
   title: "Tabib Al Arabia - Environmental Services",
@@ -21,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" dir="ltr">
-      <body className={inter.className}>
+      <body className={`${inter.className} ${oswald.variable} ${notoNaskhArabic.variable}`}>
         <BackgroundElements />
         <LanguageSwitcher />
         <Navbar />

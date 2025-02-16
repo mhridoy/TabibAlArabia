@@ -50,11 +50,10 @@ export function Navbar() {
                 className="w-12 h-12 transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-            <span className="font-bold text-3xl hidden md:inline group-hover:opacity-90 transition-all duration-500">
-              <span className="bg-gradient-to-r from-blue-400 via-sky-400 to-blue-500 bg-clip-text text-transparent drop-shadow-lg">Tabib</span>
-              <span className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 bg-clip-text text-transparent drop-shadow-lg"> Al </span>
-              <span className="bg-gradient-to-r from-blue-400 via-sky-400 to-blue-500 bg-clip-text text-transparent drop-shadow-lg">Arabia</span>
-            </span>
+            <div className="flex flex-col -space-y-1 hidden md:block">
+              <span className="text-2xl tracking-[0.2em] font-bold bg-gradient-to-r from-blue-700 via-blue-500 to-blue-800 bg-clip-text text-transparent uppercase font-[var(--font-oswald)] drop-shadow-lg">TABIB AL ARABIA</span>
+              <span className="text-base font-medium bg-gradient-to-r from-amber-600 via-amber-500 to-amber-400 bg-clip-text text-transparent text-right font-[var(--font-noto-naskh-arabic)] drop-shadow-md">طبيب العربية</span>
+            </div>
           </Link>
 
               {/* Desktop Navigation */}
