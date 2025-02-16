@@ -9,7 +9,6 @@ export function ParticleContainer() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    // Capture the context in a new constant so TypeScript knows it won't be null hereafter.
     const context = canvas.getContext("2d");
     if (!context) return;
 
@@ -25,9 +24,9 @@ export function ParticleContainer() {
       opacity: number;
 
       constructor() {
-        // canvas is guaranteed to be non-null here.
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        // Using non-null assertions on canvas
+        this.x = Math.random() * canvas!.width;
+        this.y = Math.random() * canvas!.height;
         this.size = Math.random() * 2 + 0.1;
         this.speedX = Math.random() * 1 - 0.5;
         this.speedY = Math.random() * 1 - 0.5;
@@ -38,10 +37,10 @@ export function ParticleContainer() {
         this.x += this.speedX;
         this.y += this.speedY;
 
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
+        if (this.x > canvas!.width) this.x = 0;
+        if (this.x < 0) this.x = canvas!.width;
+        if (this.y > canvas!.height) this.y = 0;
+        if (this.y < 0) this.y = canvas!.height;
       }
 
       draw() {
@@ -54,14 +53,14 @@ export function ParticleContainer() {
 
     function init() {
       particles = [];
-      const numberOfParticles = (canvas.width * canvas.height) / 15000;
+      const numberOfParticles = (canvas!.width * canvas!.height) / 15000;
       for (let i = 0; i < numberOfParticles; i++) {
         particles.push(new Particle());
       }
     }
 
     function animate() {
-      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.clearRect(0, 0, canvas!.width, canvas!.height);
 
       particles.forEach((particle) => {
         particle.update();
@@ -92,12 +91,12 @@ export function ParticleContainer() {
     }
 
     function handleResize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas!.width = window.innerWidth;
+      canvas!.height = window.innerHeight;
       init();
     }
 
-    // Set the initial canvas size and start animation.
+    // Set initial canvas size and start the animation.
     handleResize();
     window.addEventListener("resize", handleResize);
     animate();
