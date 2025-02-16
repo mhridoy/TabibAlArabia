@@ -10,19 +10,19 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const TopContactBar = () => (
-    <div className="w-full bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-2 px-4 border-b border-sky-500/10">
+    <div className="w-full bg-gradient-to-r from-white via-slate-50 to-white text-slate-700 py-2 px-4 border-b border-slate-200/80 shadow-sm">
       <div className="container mx-auto flex justify-between items-center">
         <div className="hidden md:flex items-center space-x-6 text-sm">
-          <div className="flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 group cursor-pointer">
-            <MapPin className="w-4 h-4 text-amber-400 group-hover:text-sky-400 transition-all duration-300" />
+          <div className="flex items-center space-x-2 text-slate-600 hover:text-blue-600 transition-all duration-300 group cursor-pointer">
+            <MapPin className="w-4 h-4 text-blue-500 group-hover:text-blue-600 transition-all duration-300" />
             <span>Dammam, Saudi Arabia</span>
           </div>
-          <div className="flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 group cursor-pointer">
-            <Phone className="w-4 h-4 text-amber-400 group-hover:text-sky-400 transition-all duration-300" />
+          <div className="flex items-center space-x-2 text-slate-600 hover:text-blue-600 transition-all duration-300 group cursor-pointer">
+            <Phone className="w-4 h-4 text-blue-500 group-hover:text-blue-600 transition-all duration-300" />
             <span>+966 53 435 8144</span>
           </div>
-          <div className="flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 group cursor-pointer">
-            <Mail className="w-4 h-4 text-amber-400 group-hover:text-sky-400 transition-all duration-300" />
+          <div className="flex items-center space-x-2 text-slate-600 hover:text-blue-600 transition-all duration-300 group cursor-pointer">
+            <Mail className="w-4 h-4 text-blue-500 group-hover:text-blue-600 transition-all duration-300" />
             <span>sales@tabibalarabia.com</span>
           </div>
         </div>
@@ -36,7 +36,7 @@ export function Navbar() {
         <TopContactBar />
         
         {/* Main Navbar */}
-        <nav className="w-full bg-gradient-to-r from-slate-950/95 via-slate-900/95 to-slate-950/95 backdrop-blur-xl border-b border-sky-500/10 shadow-lg shadow-slate-950/50">
+        <nav className="w-full bg-white/80 backdrop-blur-xl border-b border-slate-200/80 shadow-md">
           <div className="container mx-auto px-4">
             <div className="flex justify-between items-center h-[72px]">
               {/* Logo and Brand */}
@@ -80,7 +80,7 @@ export function Navbar() {
                   <span>Our Team</span>
                 </Link>
                 <Link href="#contact">
-                  <Button className="bg-gradient-to-r from-sky-600 via-blue-600 to-sky-600 hover:from-sky-500 hover:via-blue-500 hover:to-sky-500 text-white shadow-lg shadow-sky-900/20 hover:shadow-sky-500/30 hover:shadow-2xl transition-all duration-500 flex items-center space-x-2 rounded-full px-6 py-2 hover:scale-105 border border-sky-400/10">
+                  <Button className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white shadow-md hover:shadow-lg transition-all duration-500 flex items-center space-x-2 rounded-full px-6 py-2 hover:scale-105">
                     <MessageCircle className="w-4 h-4" />
                     <span>Contact Us</span>
                   </Button>
