@@ -9,37 +9,38 @@ import { Button } from "@/components/ui/button"
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
-  return (
-    <nav className="fixed w-full bg-gradient-to-b from-slate-900/95 via-slate-900/90 to-slate-800/95 backdrop-blur-xl z-50 shadow-2xl border-b border-sky-500/20">
-      {/* Top Bar with Contact Info */}
-      <div className="hidden md:block bg-gradient-to-r from-sky-950 to-sky-900 text-white py-3 border-b border-sky-500/20">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center text-sm">
-            <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-amber-400" />
-                <span>Dammam, Saudi Arabia</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-amber-400" />
-                <span>+966 53 435 8144</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-amber-400" />
-                <span>sales@tabibalarabia.com</span>
-              </div>
-            </div>
+  const TopContactBar = () => (
+    <div className="w-full bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-2 px-4 border-b border-sky-500/10">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="hidden md:flex items-center space-x-6 text-sm">
+          <div className="flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 group cursor-pointer">
+            <MapPin className="w-4 h-4 text-amber-400 group-hover:text-sky-400 transition-all duration-300" />
+            <span>Dammam, Saudi Arabia</span>
+          </div>
+          <div className="flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 group cursor-pointer">
+            <Phone className="w-4 h-4 text-amber-400 group-hover:text-sky-400 transition-all duration-300" />
+            <span>+966 53 435 8144</span>
+          </div>
+          <div className="flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 group cursor-pointer">
+            <Mail className="w-4 h-4 text-amber-400 group-hover:text-sky-400 transition-all duration-300" />
+            <span>sales@tabibalarabia.com</span>
           </div>
         </div>
       </div>
-      
-      {/* Main Navbar */}
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-20">
-          <Link 
-            href="/" 
-            className="flex items-center space-x-3 group"
-          >
+    </div>
+  )
+
+  return (
+    <>
+      <div className="fixed w-full z-50">
+        <TopContactBar />
+        
+        {/* Main Navbar */}
+        <nav className="w-full bg-gradient-to-r from-slate-950/95 via-slate-900/95 to-slate-950/95 backdrop-blur-xl border-b border-sky-500/10 shadow-lg shadow-slate-950/50">
+          <div className="container mx-auto px-4">
+            <div className="flex justify-between items-center h-[72px]">
+              {/* Logo and Brand */}
+              <Link href="/" className="flex items-center space-x-3 group hover:opacity-95 transition-all duration-500">
             <div className="relative">
               <Image
                 src="/logo.png"
@@ -56,43 +57,43 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
-              <Home className="w-4 h-4" />
-              <span>Home</span>
-            </Link>
-            <Link href="#about" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
-              <Users className="w-4 h-4" />
-              <span>About Us</span>
-            </Link>
-            <Link href="#services" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
-              <Briefcase className="w-4 h-4" />
-              <span>Services</span>
-            </Link>
-            <Link href="#products" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
-              <Box className="w-4 h-4" />
-              <span>Our Products</span>
-            </Link>
-            <Link href="#team" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
-              <Users className="w-4 h-4" />
-              <span>Our Team</span>
-            </Link>
-            <Link href="#contact">
-              <Button className="bg-gradient-to-r from-sky-500 via-blue-500 to-sky-500 hover:from-sky-400 hover:via-blue-400 hover:to-sky-400 text-white shadow-lg hover:shadow-sky-500/20 hover:shadow-2xl transition-all duration-500 flex items-center space-x-2 rounded-full px-6 py-5 hover:scale-105">
-                <MessageCircle className="w-4 h-4" />
-                <span>Contact Us</span>
-              </Button>
-            </Link>
-          </div>
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center space-x-8">
+                <Link href="/" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
+                  <Home className="w-4 h-4" />
+                  <span>Home</span>
+                </Link>
+                <Link href="#about" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
+                  <Users className="w-4 h-4" />
+                  <span>About Us</span>
+                </Link>
+                <Link href="#services" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
+                  <Briefcase className="w-4 h-4" />
+                  <span>Services</span>
+                </Link>
+                <Link href="#products" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
+                  <Box className="w-4 h-4" />
+                  <span>Our Products</span>
+                </Link>
+                <Link href="#team" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
+                  <Users className="w-4 h-4" />
+                  <span>Our Team</span>
+                </Link>
+                <Link href="#contact">
+                  <Button className="bg-gradient-to-r from-sky-600 via-blue-600 to-sky-600 hover:from-sky-500 hover:via-blue-500 hover:to-sky-500 text-white shadow-lg shadow-sky-900/20 hover:shadow-sky-500/30 hover:shadow-2xl transition-all duration-500 flex items-center space-x-2 rounded-full px-6 py-2 hover:scale-105 border border-sky-400/10">
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Contact Us</span>
+                  </Button>
+                </Link>
+              </div>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden p-2 rounded-full hover:bg-sky-500/10 transition-all duration-300 text-gray-300 hover:text-sky-400"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+              {/* Mobile Menu Button */}
+              <button 
+                className="md:hidden p-2 rounded-full hover:bg-sky-500/10 transition-all duration-300 text-gray-300 hover:text-sky-400"
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
         </div>
 
         {/* Mobile Navigation */}
@@ -167,7 +168,11 @@ export function Navbar() {
           </div>
         )}
       </div>
-    </nav>
+        </nav>
+      </div>
+      {/* Spacer for fixed navbar */}
+      <div className="h-[132px]" />
+    </>
   )
 }
 
