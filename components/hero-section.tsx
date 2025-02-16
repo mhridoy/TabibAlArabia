@@ -93,7 +93,7 @@ export function HeroSection() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-100 font-light">
-              Specializing in scrap metal export and sustainable waste management solutions
+            Leading the industry in scrap metal export and sales, ensuring quality and reliability.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href="#services">
