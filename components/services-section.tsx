@@ -26,8 +26,8 @@ export function ServicesSection() {
     },
     {
       icon: <Globe />,
-      title: "Global Export & Logistics",
-      description: "Efficient worldwide shipping of processed metals with comprehensive logistics solutions.",
+      title: "Global Export",
+      description: "Efficient worldwide shipping of processed metals.",
     },
     {
       icon: <Leaf />,
@@ -38,11 +38,6 @@ export function ServicesSection() {
       icon: <FileCheck />,
       title: "Custom Metal Solutions",
       description: "Tailored services based on client needs for bulk metal procurement and processing.",
-    },
-    {
-      icon: <TruckIcon />,
-      title: "Waste Management",
-      description: "Comprehensive waste management solutions for businesses and industries.",
     },
   ]
 
@@ -104,4 +99,3 @@ export function ServicesSection() {
     </section>
   )
 }
-
