@@ -10,9 +10,9 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="fixed w-full bg-gradient-to-b from-white/98 via-white/95 to-white/90 backdrop-blur-md z-50 shadow-lg border-b border-blue-100">
+    <nav className="fixed w-full bg-gradient-to-b from-slate-900/95 via-slate-900/90 to-slate-800/95 backdrop-blur-xl z-50 shadow-2xl border-b border-sky-500/20">
       {/* Top Bar with Contact Info */}
-      <div className="hidden md:block bg-gradient-to-r from-sky-900 to-sky-800 text-white py-2">
+      <div className="hidden md:block bg-gradient-to-r from-sky-950 to-sky-900 text-white py-3 border-b border-sky-500/20">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center space-x-6">
@@ -49,37 +49,37 @@ export function Navbar() {
                 className="w-12 h-12 transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-            <span className="font-bold text-2xl hidden md:inline group-hover:opacity-90 transition-all duration-300">
-              <span className="bg-gradient-to-r from-sky-700 to-sky-600 bg-clip-text text-transparent">Tabib</span>
-              <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent"> Al </span>
-              <span className="bg-gradient-to-r from-sky-700 to-sky-600 bg-clip-text text-transparent">Arabia</span>
+            <span className="font-bold text-3xl hidden md:inline group-hover:opacity-90 transition-all duration-500">
+              <span className="bg-gradient-to-r from-blue-400 via-sky-400 to-blue-500 bg-clip-text text-transparent drop-shadow-lg">Tabib</span>
+              <span className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 bg-clip-text text-transparent drop-shadow-lg"> Al </span>
+              <span className="bg-gradient-to-r from-blue-400 via-sky-400 to-blue-500 bg-clip-text text-transparent drop-shadow-lg">Arabia</span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="nav-link flex items-center space-x-2 text-gray-600 hover:text-sky-700 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-sky-600 after:transition-all after:duration-300 py-1">
+            <Link href="/" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
               <Home className="w-4 h-4" />
               <span>Home</span>
             </Link>
-            <Link href="#about" className="nav-link flex items-center space-x-2 text-gray-600 hover:text-sky-700 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-sky-600 after:transition-all after:duration-300 py-1">
+            <Link href="#about" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
               <Users className="w-4 h-4" />
               <span>About Us</span>
             </Link>
-            <Link href="#services" className="nav-link flex items-center space-x-2 text-gray-600 hover:text-sky-700 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-sky-600 after:transition-all after:duration-300 py-1">
+            <Link href="#services" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
               <Briefcase className="w-4 h-4" />
               <span>Services</span>
             </Link>
-            <Link href="#products" className="nav-link flex items-center space-x-2 text-gray-600 hover:text-sky-700 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-sky-600 after:transition-all after:duration-300 py-1">
+            <Link href="#products" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
               <Box className="w-4 h-4" />
               <span>Our Products</span>
             </Link>
-            <Link href="#team" className="nav-link flex items-center space-x-2 text-gray-600 hover:text-sky-700 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-sky-600 after:transition-all after:duration-300 py-1">
+            <Link href="#team" className="nav-link flex items-center space-x-2 text-gray-300 hover:text-sky-400 transition-all duration-300 relative py-1 px-3 rounded-full hover:bg-sky-500/10 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:w-0 hover:after:w-[calc(100%-16px)] after:bg-gradient-to-r after:from-sky-400 after:to-blue-500 after:transition-all after:duration-500">
               <Users className="w-4 h-4" />
               <span>Our Team</span>
             </Link>
             <Link href="#contact">
-              <Button className="bg-gradient-to-r from-sky-700 to-sky-600 hover:from-sky-600 hover:to-sky-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2">
+              <Button className="bg-gradient-to-r from-sky-500 via-blue-500 to-sky-500 hover:from-sky-400 hover:via-blue-400 hover:to-sky-400 text-white shadow-lg hover:shadow-sky-500/20 hover:shadow-2xl transition-all duration-500 flex items-center space-x-2 rounded-full px-6 py-5 hover:scale-105">
                 <MessageCircle className="w-4 h-4" />
                 <span>Contact Us</span>
               </Button>
@@ -88,7 +88,7 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 rounded-full hover:bg-sky-500/10 transition-all duration-300 text-gray-300 hover:text-sky-400"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -99,17 +99,17 @@ export function Navbar() {
         {isOpen && (
           <div className="md:hidden pb-6 space-y-4">
             {/* Mobile Contact Info */}
-            <div className="px-4 py-2 space-y-2 bg-gray-50 rounded-lg">
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <MapPin className="w-4 h-4 text-yellow-400" />
+            <div className="px-4 py-4 space-y-3 bg-sky-950/30 rounded-xl border border-sky-500/20 backdrop-blur-xl">
+              <div className="flex items-center space-x-2 text-sm text-gray-300 hover:text-sky-400 transition-all duration-300 group">
+                <MapPin className="w-4 h-4 text-amber-400 group-hover:text-sky-400 transition-all duration-300" />
                 <span>Dammam, Saudi Arabia</span>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <Phone className="w-4 h-4 text-yellow-400" />
+              <div className="flex items-center space-x-2 text-sm text-gray-300 hover:text-sky-400 transition-all duration-300 group">
+                <Phone className="w-4 h-4 text-amber-400 group-hover:text-sky-400 transition-all duration-300" />
                 <span>+966 53 435 8144</span>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <Mail className="w-4 h-4 text-yellow-400" />
+              <div className="flex items-center space-x-2 text-sm text-gray-300 hover:text-sky-400 transition-all duration-300 group">
+                <Mail className="w-4 h-4 text-amber-400 group-hover:text-sky-400 transition-all duration-300" />
                 <span>sales@tabibalarabia.com</span>
               </div>
             </div>
@@ -117,7 +117,7 @@ export function Navbar() {
             {/* Mobile Navigation Links */}
             <Link
               href="/"
-              className="flex items-center space-x-2 px-4 py-3 text-gray-600 hover:text-sky-700 hover:bg-sky-50 rounded-lg transition-all duration-300"
+              className="flex items-center space-x-2 px-4 py-3 text-gray-300 hover:text-sky-400 hover:bg-sky-500/10 rounded-xl transition-all duration-300 hover:scale-105"
               onClick={() => setIsOpen(false)}
             >
               <Home className="w-4 h-4" />
@@ -125,7 +125,7 @@ export function Navbar() {
             </Link>
             <Link
               href="#about"
-              className="flex items-center space-x-2 px-4 py-3 text-gray-600 hover:text-sky-700 hover:bg-sky-50 rounded-lg transition-all duration-300"
+              className="flex items-center space-x-2 px-4 py-3 text-gray-300 hover:text-sky-400 hover:bg-sky-500/10 rounded-xl transition-all duration-300 hover:scale-105"
               onClick={() => setIsOpen(false)}
             >
               <Users className="w-4 h-4" />
@@ -133,7 +133,7 @@ export function Navbar() {
             </Link>
             <Link
               href="#services"
-              className="flex items-center space-x-2 px-4 py-3 text-gray-600 hover:text-sky-700 hover:bg-sky-50 rounded-lg transition-all duration-300"
+              className="flex items-center space-x-2 px-4 py-3 text-gray-300 hover:text-sky-400 hover:bg-sky-500/10 rounded-xl transition-all duration-300 hover:scale-105"
               onClick={() => setIsOpen(false)}
             >
               <Briefcase className="w-4 h-4" />
@@ -141,7 +141,7 @@ export function Navbar() {
             </Link>
             <Link
               href="#products"
-              className="flex items-center space-x-2 px-4 py-3 text-gray-600 hover:text-sky-700 hover:bg-sky-50 rounded-lg transition-all duration-300"
+              className="flex items-center space-x-2 px-4 py-3 text-gray-300 hover:text-sky-400 hover:bg-sky-500/10 rounded-xl transition-all duration-300 hover:scale-105"
               onClick={() => setIsOpen(false)}
             >
               <Box className="w-4 h-4" />
@@ -149,7 +149,7 @@ export function Navbar() {
             </Link>
             <Link
               href="#team"
-              className="flex items-center space-x-2 px-4 py-3 text-gray-600 hover:text-sky-700 hover:bg-sky-50 rounded-lg transition-all duration-300"
+              className="flex items-center space-x-2 px-4 py-3 text-gray-300 hover:text-sky-400 hover:bg-sky-500/10 rounded-xl transition-all duration-300 hover:scale-105"
               onClick={() => setIsOpen(false)}
             >
               <Users className="w-4 h-4" />
@@ -159,7 +159,7 @@ export function Navbar() {
               href="#contact"
               onClick={() => setIsOpen(false)}
             >
-              <Button className="w-full justify-center flex items-center space-x-2 bg-gradient-to-r from-sky-700 to-sky-600 hover:from-sky-600 hover:to-sky-500 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button className="w-full justify-center flex items-center space-x-2 bg-gradient-to-r from-sky-500 via-blue-500 to-sky-500 hover:from-sky-400 hover:via-blue-400 hover:to-sky-400 text-white shadow-lg hover:shadow-sky-500/20 hover:shadow-2xl transition-all duration-500 rounded-xl py-4 hover:scale-105">
                 <MessageCircle className="w-4 h-4" />
                 <span>Contact Us</span>
               </Button>
