@@ -24,8 +24,15 @@ export function HeroSection() {
       containerRef.current.style.setProperty("--mouse-y", `${y * 100}%`);
     };
 
-    window.addEventListener("mousemove", updateMousePosition);
-    return () => window.removeEventListener("mousemove", updateMousePosition);
+    if (typeof window !== "undefined") {
+      window.addEventListener("mousemove", updateMousePosition);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("mousemove", updateMousePosition);
+      }
+    };
   }, []);
 
   return (
@@ -49,10 +56,13 @@ export function HeroSection() {
         <motion.div
           key={index}
           className="absolute w-4 h-4 rounded-full bg-yellow-400/20 backdrop-blur-sm"
-          initial={{ x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight }}
+          initial={{
+            x: typeof window !== "undefined" ? Math.random() * window.innerWidth : 0,
+            y: typeof window !== "undefined" ? Math.random() * window.innerHeight : 0
+          }}
           animate={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: typeof window !== "undefined" ? Math.random() * window.innerWidth : 0,
+            y: typeof window !== "undefined" ? Math.random() * window.innerHeight : 0,
             scale: [1, 1.2, 1],
           }}
           transition={{ duration: 10 + Math.random() * 10, repeat: Infinity, repeatType: "reverse" }}

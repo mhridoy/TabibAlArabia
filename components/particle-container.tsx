@@ -9,9 +9,9 @@ export function ParticleContainer() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const context = canvas.getContext("2d");
-    if (!context) return;
-
+    // Retrieve the 2D context with non-null assertion.
+    const context = canvas.getContext("2d")!;
+    
     let animationFrameId: number;
     let particles: Particle[] = [];
 
@@ -24,7 +24,7 @@ export function ParticleContainer() {
       opacity: number;
 
       constructor() {
-        // Using non-null assertions on canvas
+        // Use the non-null assertion for canvas's dimensions.
         this.x = Math.random() * canvas!.width;
         this.y = Math.random() * canvas!.height;
         this.size = Math.random() * 2 + 0.1;
@@ -67,7 +67,7 @@ export function ParticleContainer() {
         particle.draw();
       });
 
-      // Draw lines between particles if they are close enough
+      // Draw lines between particles if they are close enough.
       particles.forEach((particleA) => {
         particles.forEach((particleB) => {
           const dx = particleA.x - particleB.x;
@@ -76,9 +76,7 @@ export function ParticleContainer() {
 
           if (distance < 100) {
             context.beginPath();
-            context.strokeStyle = `rgba(255, 255, 255, ${
-              0.1 * (1 - distance / 100)
-            })`;
+            context.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - distance / 100)})`;
             context.lineWidth = 0.5;
             context.moveTo(particleA.x, particleA.y);
             context.lineTo(particleB.x, particleB.y);
@@ -91,18 +89,23 @@ export function ParticleContainer() {
     }
 
     function handleResize() {
-      canvas!.width = window.innerWidth;
-      canvas!.height = window.innerHeight;
-      init();
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        init();
+      }
     }
 
-    // Set initial canvas size and start the animation.
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    animate();
+    if (typeof window !== "undefined") {
+      handleResize();
+      window.addEventListener("resize", handleResize);
+      animate();
+    }
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
