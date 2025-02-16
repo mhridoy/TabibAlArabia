@@ -9,7 +9,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, 100]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
@@ -21,7 +20,6 @@ export function HeroSection() {
       const { left, top, width, height } = containerRef.current.getBoundingClientRect();
       const x = (clientX - left) / width;
       const y = (clientY - top) / height;
-      setMousePosition({ x, y });
       containerRef.current.style.setProperty("--mouse-x", `${x * 100}%`);
       containerRef.current.style.setProperty("--mouse-y", `${y * 100}%`);
     };
