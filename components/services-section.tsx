@@ -2,7 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { Recycle, TruckIcon, Globe, Leaf, Cog, FileCheck } from "lucide-react"
+import { Recycle, Globe, Leaf, Cog, FileCheck } from "lucide-react"
 
 export function ServicesSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
