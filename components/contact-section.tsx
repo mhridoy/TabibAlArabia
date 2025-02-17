@@ -1,21 +1,8 @@
 "use client"
 
-import { useState } from "react"
-import { MapPin, Mail, Phone, Clock, Building, Send, CheckCircle2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { MapPin, Mail, Phone, Clock, Building } from "lucide-react"
 
 export function ContactSection() {
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Add your form submission logic here
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 3000)
-  }
-
   return (
     <div className="relative py-32 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
@@ -33,64 +20,17 @@ export function ContactSection() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-blue-800/5 transform -skew-y-6 rounded-3xl" />
-            <div className="relative bg-white rounded-2xl p-8 shadow-xl">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-700">First Name</label>
-                    <Input 
-                      placeholder="John" 
-                      className="bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500" 
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-700">Last Name</label>
-                    <Input 
-                      placeholder="Doe" 
-                      className="bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500" 
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700">Email</label>
-                  <Input 
-                    type="email" 
-                    placeholder="john@example.com" 
-                    className="bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500" 
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700">Message</label>
-                  <Textarea 
-                    placeholder="Your message here..." 
-                    className="bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500 min-h-[120px]" 
-                  />
-                </div>
-
-                <Button 
-                  type="submit" 
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white"
-                >
-                  {isSubmitted ? (
-                    <span className="flex items-center gap-2">
-                      <CheckCircle2 className="w-5 h-5" />
-                      Message Sent!
-                    </span>
-                  ) : (
-                    <span className="flex items-center gap-2">
-                      <Send className="w-5 h-5" />
-                      Send Message
-                    </span>
-                  )}
-                </Button>
-              </form>
-            </div>
+          {/* Map */}
+          <div className="relative overflow-hidden rounded-2xl shadow-xl">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.081329893851!2d49.9639032!3d26.485326099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e36010ec53129d1%3A0x2218a1942fc85035!2sTabib%20Al%20Arabia%20For%20Environmental%20Services%20Co!5e0!3m2!1sen!2ssa!4v1739793524713!5m2!1sen!2ssa" 
+              width="100%" 
+              height="450" 
+              style={{ border: 0 }} 
+              allowFullScreen 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
 
           {/* Contact Information */}
@@ -102,7 +42,7 @@ export function ContactSection() {
                 <MapPin className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
                   <h4 className="font-semibold text-gray-800">Location</h4>
-                  <p className="text-gray-600">123 Business Street, Dubai, UAE</p>
+                  <p className="text-gray-600">Tabib Al Arabia For Environmental Services Co</p>
                 </div>
               </div>
 
@@ -110,7 +50,7 @@ export function ContactSection() {
                 <Mail className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
                   <h4 className="font-semibold text-gray-800">Email</h4>
-                  <p className="text-gray-600">info@tabibalrabia.com</p>
+                  <p className="text-gray-600">sales@tabibalarabia.com</p>
                 </div>
               </div>
 
@@ -118,7 +58,7 @@ export function ContactSection() {
                 <Phone className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
                   <h4 className="font-semibold text-gray-800">Phone</h4>
-                  <p className="text-gray-600">+971 50 123 4567</p>
+                  <p className="text-gray-600">+966 53 435 8144</p>
                 </div>
               </div>
 
@@ -126,7 +66,7 @@ export function ContactSection() {
                 <Clock className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
                   <h4 className="font-semibold text-gray-800">Working Hours</h4>
-                  <p className="text-gray-600">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                  <p className="text-gray-600">Sat - Thus: 9:00 AM - 6:00 PM</p>
                 </div>
               </div>
 
@@ -134,7 +74,7 @@ export function ContactSection() {
                 <Building className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
                   <h4 className="font-semibold text-gray-800">Office</h4>
-                  <p className="text-gray-600">Main Branch - Dubai</p>
+                  <p className="text-gray-600">Main Branch</p>
                 </div>
               </div>
             </div>
