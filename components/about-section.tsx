@@ -15,7 +15,7 @@ export function AboutSection() {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100])
 
   const stats = [
-    { value: "10+", label: "Years Experience" },
+    { value: "20+", label: "Years Experience" },
     { value: "500+", label: "Projects Completed" },
     { value: "50+", label: "Global Partners" },
     { value: "100%", label: "Client Satisfaction" },
