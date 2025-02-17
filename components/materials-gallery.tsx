@@ -105,7 +105,6 @@ export function MaterialsGallery({ isOpen, onClose, category }: MaterialsGallery
           </div>
         </div>
       )}
-      </div>
     </div>
   )
 }
