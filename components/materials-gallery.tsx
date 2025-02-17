@@ -36,13 +36,11 @@ export function MaterialsGallery({ isOpen, onClose, category }: MaterialsGallery
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-      <div className="relative w-full max-w-6xl">
-        <div className="bg-white rounded-2xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
       <motion.div 
         initial={{ scale: 0.9, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="bg-white rounded-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden shadow-2xl">
+        className="relative w-full max-w-6xl bg-white rounded-2xl max-h-[90vh] overflow-hidden shadow-2xl">
         <div className="p-6 border-b border-gray-200 flex justify-between items-center">
           <h3 className="text-2xl font-bold text-gray-800">
             {category || "Our Materials"}
@@ -81,7 +79,6 @@ export function MaterialsGallery({ isOpen, onClose, category }: MaterialsGallery
             ))}
           </div>
         </div>
-      </div>
       </motion.div>
 
       {selectedImage && (
