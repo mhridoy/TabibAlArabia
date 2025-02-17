@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { BackgroundElements } from "@/components/background-elements"
 import { motion } from "framer-motion"
-import { WhatsApp } from "lucide-react"
+import { MessageSquare } from "lucide-react"
 
 const inter = Inter({ subsets: ["latin"] })
 const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" })
@@ -42,7 +42,7 @@ export default function RootLayout({
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <WhatsApp className="w-6 h-6 group-hover:animate-bounce" />
+          <MessageSquare className="w-6 h-6 group-hover:animate-bounce" fill="currentColor" />
           <span className="font-medium">Contact Sales</span>
         </motion.a>
       </body>
