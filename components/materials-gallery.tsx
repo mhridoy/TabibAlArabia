@@ -79,7 +79,7 @@ export function MaterialsGallery({ isOpen, onClose, category }: MaterialsGallery
                   className="object-cover transform group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
