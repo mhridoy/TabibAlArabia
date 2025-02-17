@@ -3,6 +3,10 @@
 import { useState } from "react"
 import Image from "next/image"
 import { X } from "lucide-react"
+import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
+
+const MotionButton = motion(Button)
 
 const materialImages = [
   "/Our Products/WhatsApp Image 2025-02-17 at 10.18.32.jpeg",
