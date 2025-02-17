@@ -4,7 +4,7 @@ import { MapPin, Mail, Phone, Clock, Building } from "lucide-react"
 
 export function ContactSection() {
   return (
-    <div className="relative py-32 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
+    <div id="contact" className="relative py-32 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
 
       <div className="container mx-auto px-4 relative">
