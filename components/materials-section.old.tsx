@@ -2,10 +2,9 @@
 
 import { useRef, useState } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ArrowRight } from "lucide-react"
-import { Gallery } from "./gallery"
+import { MaterialsGallery } from "./materials-gallery"
 
 export function MaterialsSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -28,25 +27,25 @@ export function MaterialsSection() {
     {
       category: "Ferrous Metals",
       items: ["Iron", "Steel", "Cast Iron", "Heavy Melting Scrap"],
-      image: "/Our Products/WhatsApp Image 2025-02-17 at 10.18.32.jpeg",
+      image: "https://i.postimg.cc/hXM9cnRS/Whats-App-Image-2025-02-17-at-10-18-32.jpg",
       description: "High-quality ferrous metals including steel and iron products for industrial use.",
     },
     {
       category: "Non-Ferrous Metals",
       items: ["Copper", "Aluminum", "Brass", "Stainless Steel", "Lead", "Zinc"],
-      image: "/Our Products/WhatsApp Image 2025-02-17 at 10.18.32 (1).jpeg",
+      image: "https://i.postimg.cc/75qgF6cs/Whats-App-Image-2025-02-17-at-10-18-32-1.jpg",
       description: "Premium non-ferrous metals including copper, aluminum, and brass materials.",
     },
     {
       category: "Electronic Scrap & Industrial Metal Waste",
       items: ["E-Waste", "Industrial Metal Residues"],
-      image: "/Our Products/WhatsApp Image 2025-02-17 at 10.18.34.jpeg",
+      image: "https://i.postimg.cc/TKkWBcn1/Whats-App-Image-2025-02-17-at-10-18-34.jpg",
       description: "Responsible recycling of electronic waste and industrial metal residues.",
     },
   ]
 
   return (
-    <>
+    <div>
       <section
         ref={sectionRef}
         className="relative py-32 overflow-hidden bg-gradient-to-b from-background-secondary to-background"
@@ -107,25 +106,14 @@ export function MaterialsSection() {
                       </li>
                     ))}
                   </ul>
-                  <div className="flex space-x-4">
-                    <motion.button
-                      onClick={() => handleLearnMore(material.category)}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center text-blue-600 hover:text-blue-700 transition-colors font-medium"
-                    >
-                      View Gallery <ArrowRight className="ml-2 w-4 h-4" />
-                    </motion.button>
-                    <Link href="/products">
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex items-center text-blue-600 hover:text-blue-700 transition-colors font-medium"
-                      >
-                        Our Products <ArrowRight className="ml-2 w-4 h-4" />
-                      </motion.button>
-                    </Link>
-                  </div>
+                  <motion.button
+                    onClick={() => handleLearnMore(material.category)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center text-blue-600 hover:text-blue-700 transition-colors font-medium"
+                  >
+                    Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                  </motion.button>
                 </div>
               </motion.div>
             ))}
@@ -133,13 +121,11 @@ export function MaterialsSection() {
         </div>
       </section>
 
-      {isGalleryOpen && (
-        <Gallery 
-          isOpen={isGalleryOpen} 
-          onClose={() => setIsGalleryOpen(false)} 
-          category={selectedCategory}
-        />
-      )}
-    </>
+      <MaterialsGallery 
+        isOpen={isGalleryOpen} 
+        onClose={() => setIsGalleryOpen(false)} 
+        category={selectedCategory}
+      />
+    </div>
   )
 }

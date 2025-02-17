@@ -70,14 +70,11 @@ export function Navbar() {
                   <Briefcase className="w-4 h-4" />
                   <span>Services</span>
                 </Link>
-                <Link href="#products" className="nav-link flex items-center space-x-2 text-slate-700 hover:text-blue-700 transition-all duration-300 relative py-1.5 px-3 rounded-lg hover:bg-blue-50 font-medium text-sm">
+                <Link href="/products" className="nav-link flex items-center space-x-2 text-slate-700 hover:text-blue-700 transition-all duration-300 relative py-1.5 px-3 rounded-lg hover:bg-blue-50 font-medium text-sm">
                   <Box className="w-4 h-4" />
                   <span>Our Products</span>
                 </Link>
-                <Link href="#team" className="nav-link flex items-center space-x-2 text-slate-700 hover:text-blue-700 transition-all duration-300 relative py-1.5 px-3 rounded-lg hover:bg-blue-50 font-medium text-sm">
-                  <Users className="w-4 h-4" />
-                  <span>Our Team</span>
-                </Link>
+
                 <Link href="#contact">
                   <Button className="bg-black hover:bg-gray-800 text-white shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-2 rounded-lg px-4 py-1.5 text-sm font-medium">
                     <MessageCircle className="w-4 h-4" />
@@ -140,21 +137,14 @@ export function Navbar() {
               <span>Services</span>
             </Link>
             <Link
-              href="#products"
+              href="/products"
               className="flex items-center space-x-2 px-4 py-3 text-gray-300 hover:text-sky-400 hover:bg-sky-500/10 rounded-xl transition-all duration-300 hover:scale-105"
               onClick={() => setIsOpen(false)}
             >
               <Box className="w-4 h-4" />
               <span>Our Products</span>
             </Link>
-            <Link
-              href="#team"
-              className="flex items-center space-x-2 px-4 py-3 text-gray-300 hover:text-sky-400 hover:bg-sky-500/10 rounded-xl transition-all duration-300 hover:scale-105"
-              onClick={() => setIsOpen(false)}
-            >
-              <Users className="w-4 h-4" />
-              <span>Our Team</span>
-            </Link>
+
             <Link
               href="#contact"
               onClick={() => setIsOpen(false)}

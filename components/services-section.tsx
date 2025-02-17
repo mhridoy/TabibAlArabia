@@ -5,10 +5,10 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Recycle, Globe, Leaf, Cog, FileCheck } from "lucide-react"
 
 export function ServicesSection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
+    target: containerRef,
+    offset: ["start end", "end start"]
   })
 
   const y = useTransform(scrollYProgress, [0, 1], [100, -100])
@@ -42,7 +42,7 @@ export function ServicesSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="relative py-32 overflow-hidden">
+    <section ref={containerRef} className="relative py-32 overflow-hidden">
       <motion.div
         style={{ y }}
         className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,51,102,0.1),transparent_50%)]"
