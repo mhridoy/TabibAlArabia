@@ -28,7 +28,7 @@ export function ContactSection() {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Have questions about our services? We're here to help and answer any question you might have.
+            Have questions about our services? We&apos;re here to help and answer any question you might have.
           </p>
         </div>
 

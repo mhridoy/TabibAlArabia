@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { Target, Eye, Award, ArrowRight, Recycle, Globe2, Shield } from "lucide-react"
+import { Target, Eye, Recycle, Globe2, Shield } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function AboutSection() {
@@ -156,4 +156,3 @@ export function AboutSection() {
     </section>
   )
 }
-

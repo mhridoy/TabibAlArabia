@@ -54,7 +54,7 @@ export function MaterialsGallery({ isOpen, onClose, category }: MaterialsGallery
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
           >
             <X className="w-6 h-6 text-gray-500" />
-          </button>
+          </MotionButton>
         </div>
 
         <div className="p-6 overflow-y-auto max-h-[calc(90vh-100px)]">
@@ -104,7 +104,7 @@ export function MaterialsGallery({ isOpen, onClose, category }: MaterialsGallery
               className="absolute top-6 right-6 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
             >
               <X className="w-6 h-6 text-white" />
-            </button>
+            </MotionButton>
           </div>
         </div>
       )}
