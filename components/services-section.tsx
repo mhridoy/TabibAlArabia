@@ -42,7 +42,7 @@ export function ServicesSection() {
   ]
 
   return (
-    <section ref={containerRef} className="relative py-32 overflow-hidden">
+    <section id="services" ref={containerRef} className="relative py-32 overflow-hidden">
       <motion.div
         style={{ y }}
         className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,51,102,0.1),transparent_50%)]"

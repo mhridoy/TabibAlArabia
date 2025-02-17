@@ -116,15 +116,6 @@ export function MaterialsSection() {
                     >
                       View Gallery <ArrowRight className="ml-2 w-4 h-4" />
                     </motion.button>
-                    <Link href="/products">
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex items-center text-blue-600 hover:text-blue-700 transition-colors font-medium"
-                      >
-                        Our Products <ArrowRight className="ml-2 w-4 h-4" />
-                      </motion.button>
-                    </Link>
                   </div>
                 </div>
               </motion.div>

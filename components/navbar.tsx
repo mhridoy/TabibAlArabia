@@ -68,7 +68,7 @@ export function Navbar() {
                 </Link>
                 <Link href="#services" className="nav-link flex items-center space-x-2 text-slate-700 hover:text-blue-700 transition-all duration-300 relative py-1.5 px-3 rounded-lg hover:bg-blue-50 font-medium text-sm">
                   <Briefcase className="w-4 h-4" />
-                  <span>Services</span>
+                  <span>Our Services</span>
                 </Link>
                 <Link href="/products" className="nav-link flex items-center space-x-2 text-slate-700 hover:text-blue-700 transition-all duration-300 relative py-1.5 px-3 rounded-lg hover:bg-blue-50 font-medium text-sm">
                   <Box className="w-4 h-4" />
@@ -134,7 +134,7 @@ export function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               <Briefcase className="w-4 h-4" />
-              <span>Services</span>
+              <span>Our Services</span>
             </Link>
             <Link
               href="/products"
