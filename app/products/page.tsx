@@ -5,21 +5,20 @@ import { useRef, useState } from "react"
 import Image from "next/image"
 
 const getImagesForCategory = () => {
-  // Ferrous images (only available PNGs)
-  const ferrousImageNumbers = [1, 2, 3, 5, 7, 8, 10]
-  const ferrousImages = ferrousImageNumbers.map(num => 
-    `/Our Products/ferrous_images/image${num}.png`
-  )
+  // Ferrous images are numbered 1-20 (missing 17)
+  const ferrousImages = Array.from({ length: 19 }, (_, i) => {
+    const num = i + 1
+    if (num >= 17) return `/Our Products/ferrous_images/image${num + 1}.jpeg`
+    return `/Our Products/ferrous_images/image${num}.jpeg`
+  })
 
-  // Non-ferrous images from the images directory
+  // Non-ferrous images have specific numbers
   const nonFerrousImageNumbers = [
-    1, 2, 3, 4, 10, 11, 12, 13, 16, 17, 18, 20, 21, 22, 23, 24,
-    26, 27, 29, 30, 31, 32, 35, 36, 37, 38, 39, 40, 41, 42, 43, 45, 48,
-    49, 50, 52, 53, 54, 55, 56, 58, 59, 60, 63, 65, 66, 68, 72, 73, 75,
-    76, 77, 78, 79, 82, 85, 87, 88, 90, 91, 94, 96, 97, 98, 99, 100
+    1, 2, 3, 4, 10, 14, 24, 27, 29, 30, 34, 35, 37, 38, 39, 40, 41,
+    54, 58, 59, 60, 61, 62, 65, 69, 70, 71, 72, 73, 74, 75
   ]
   const nonFerrousImages = nonFerrousImageNumbers.map(num => 
-    `/Our Products/images/image${num}.jpeg`
+    `/Our Products/nonferrous_images/image${num}.png`
   )
 
   return [...ferrousImages, ...nonFerrousImages]
@@ -74,9 +73,6 @@ export default function ProductsPage() {
                 alt={`Metal Product ${index + 1}`}
                 fill
                 className="object-cover transform group-hover:scale-110 transition-transform duration-300"
-                onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-                  console.error('Image failed to load:', e.currentTarget.src);
-                }}
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
             </motion.div>

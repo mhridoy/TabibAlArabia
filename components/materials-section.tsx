@@ -27,19 +27,19 @@ export function MaterialsSection() {
     {
       category: "Ferrous Metals",
       items: ["Iron", "Steel", "Cast Iron", "Heavy Melting Scrap"],
-      image: "/Our Products/ferrous_images/image1.png",
+      image: "/Our Products/ferrous_images/image1.jpeg",
       description: "High-quality ferrous metals including steel and iron products for industrial use.",
     },
     {
       category: "Non-Ferrous Metals",
       items: ["Copper", "Aluminum", "Brass", "Stainless Steel", "Lead", "Zinc"],
-      image: "/Our Products/nonferrous_images/image1.png",
+      image: "/Our Products/nonferrous_images/image1.jpeg",
       description: "Premium non-ferrous metals including copper, aluminum, and brass materials.",
     },
     {
       category: "All Products",
       items: ["View All Products"],
-      image: "/Our Products/ferrous_images/image2.png",
+      image: "/Our Products/ferrous_images/image2.jpeg",
       description: "Browse our complete collection of ferrous and non-ferrous metals.",
     },
   ]

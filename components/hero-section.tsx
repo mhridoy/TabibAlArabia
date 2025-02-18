@@ -82,7 +82,7 @@ export function HeroSection() {
               animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
               transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
             />
-            <Image src="/logo.png" alt="Company Logo" width={180} height={180} className="mx-auto relative z-10" />
+            <Image src="/logo.jpeg" alt="Company Logo" width={180} height={180} className="mx-auto relative z-10" />
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="space-y-4">

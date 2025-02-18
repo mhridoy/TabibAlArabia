@@ -43,7 +43,7 @@ export function Navbar() {
               <Link href="/" className="flex items-center space-x-4 group hover:opacity-95 transition-all duration-500">
             <div className="relative">
               <Image
-                src="/logo.png"
+                src="/logo.jpeg"
                 alt="Tabib Al Arabia Logo"
                 width={48}
                 height={48}
