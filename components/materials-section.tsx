@@ -27,20 +27,20 @@ export function MaterialsSection() {
     {
       category: "Ferrous Metals",
       items: ["Iron", "Steel", "Cast Iron", "Heavy Melting Scrap"],
-      image: "/Our Products/WhatsApp Image 2025-02-17 at 10.18.32.jpeg",
+      image: "/Our Products/ferrous_images/image1.png",
       description: "High-quality ferrous metals including steel and iron products for industrial use.",
     },
     {
       category: "Non-Ferrous Metals",
       items: ["Copper", "Aluminum", "Brass", "Stainless Steel", "Lead", "Zinc"],
-      image: "/Our Products/WhatsApp Image 2025-02-17 at 10.18.32 (1).jpeg",
+      image: "/Our Products/nonferrous_images/image1.png",
       description: "Premium non-ferrous metals including copper, aluminum, and brass materials.",
     },
     {
-      category: "Electronic Scrap & Industrial Metal Waste",
-      items: ["E-Waste", "Industrial Metal Residues"],
-      image: "/Our Products/WhatsApp Image 2025-02-17 at 10.18.34.jpeg",
-      description: "Responsible recycling of electronic waste and industrial metal residues.",
+      category: "All Products",
+      items: ["View All Products"],
+      image: "/Our Products/ferrous_images/image2.png",
+      description: "Browse our complete collection of ferrous and non-ferrous metals.",
     },
   ]
 

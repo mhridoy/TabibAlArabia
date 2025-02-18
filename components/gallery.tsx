@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { X } from "lucide-react"
 
@@ -10,27 +10,40 @@ interface GalleryProps {
   category?: string
 }
 
-const materialImages = [
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.32.jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.32 (1).jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.34.jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.34 (1).jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.34 (2).jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.34 (3).jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.34 (4).jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.34 (5).jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.34 (6).jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.34 (7).jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.34 (8).jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.34 (9).jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.35.jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.35 (1).jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.35 (2).jpeg",
-  "/Our Products/WhatsApp Image 2025-02-17 at 10.18.35 (3).jpeg"
-]
+const getImagesForCategory = (category?: string) => {
+  // Ferrous images are numbered 1-20 (missing 17)
+  const ferrousImages = Array.from({ length: 19 }, (_, i) => {
+    const num = i + 1
+    if (num >= 17) return `/Our Products/ferrous_images/image${num + 1}.png`
+    return `/Our Products/ferrous_images/image${num}.png`
+  })
+
+  // Non-ferrous images have specific numbers
+  const nonFerrousImageNumbers = [
+    1, 2, 3, 4, 10, 14, 24, 27, 29, 30, 34, 35, 37, 38, 39, 40, 41,
+    54, 58, 59, 60, 61, 62, 65, 69, 70, 71, 72, 73, 74, 75
+  ]
+  const nonFerrousImages = nonFerrousImageNumbers.map(num => 
+    `/Our Products/nonferrous_images/image${num}.png`
+  )
+
+  if (!category || category === "All Products") {
+    return [...ferrousImages, ...nonFerrousImages]
+  } else if (category === "Ferrous Metals") {
+    return ferrousImages
+  } else if (category === "Non-Ferrous Metals") {
+    return nonFerrousImages
+  }
+  return []
+}
 
 export function Gallery({ isOpen, onClose, category }: GalleryProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [images, setImages] = useState<string[]>([])
+
+  useEffect(() => {
+    setImages(getImagesForCategory(category))
+  }, [category])
 
   if (!isOpen) return null
 
@@ -51,7 +64,7 @@ export function Gallery({ isOpen, onClose, category }: GalleryProps) {
 
         <div className="p-6 overflow-y-auto max-h-[calc(90vh-100px)]">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {materialImages.map((image, index) => (
+            {images.map((image, index) => (
               <div
                 key={index}
                 className="group relative aspect-square rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
