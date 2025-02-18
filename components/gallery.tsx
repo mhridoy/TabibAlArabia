@@ -14,8 +14,8 @@ const getImagesForCategory = (category?: string) => {
   // Ferrous images are numbered 1-20 (missing 17)
   const ferrousImages = Array.from({ length: 19 }, (_, i) => {
     const num = i + 1
-    if (num >= 17) return `/Our Products/ferrous_images/image${num + 1}.jpeg`
-    return `/Our Products/ferrous_images/image${num}.jpeg`
+    if (num >= 17) return `/Our Products/ferrous_images/image${num + 1}.png`
+    return `/Our Products/ferrous_images/image${num}.png`
   })
 
   // Non-ferrous images have specific numbers
