@@ -8,8 +8,8 @@ const getImagesForCategory = () => {
   // Ferrous images are numbered 1-20 (missing 17)
   const ferrousImages = Array.from({ length: 19 }, (_, i) => {
     const num = i + 1
-    if (num >= 17) return `/Our Products/ferrous_images/image${num + 1}.png`
-    return `/Our Products/ferrous_images/image${num}.png`
+    if (num >= 17) return `/Our Products/ferrous_images/image${num + 1}.jpeg`
+    return `/Our Products/ferrous_images/image${num}.jpeg`
   })
 
   // Non-ferrous images have specific numbers
@@ -18,7 +18,7 @@ const getImagesForCategory = () => {
     54, 58, 59, 60, 61, 62, 65, 69, 70, 71, 72, 73, 74, 75
   ]
   const nonFerrousImages = nonFerrousImageNumbers.map(num => 
-    `/Our Products/nonferrous_images/image${num}.png`
+    `/Our Products/nonferrous_images/image${num}.jpeg`
   )
 
   return [...ferrousImages, ...nonFerrousImages]
