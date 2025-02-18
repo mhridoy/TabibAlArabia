@@ -86,15 +86,18 @@ export function AboutSection() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl"
+              className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group hover:shadow-blue-200/50 transition-all duration-500"
             >
-              <Image
-                src="/Our Products/WhatsApp Image 2025-02-17 at 10.18.32.jpeg"
-                alt="Tabib Al Arabia Facility"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              <div className="relative h-full w-full">
+                <Image
+                  src="/Our Products/nonferrous_images/image35.png"
+                  alt="Tabib Al Arabia Facility"
+                  fill
+                  className="object-cover rounded-2xl transform hover:scale-105 transition-transform duration-500"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-2xl" />
+              </div>
             </motion.div>
           </div>
 
