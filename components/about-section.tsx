@@ -90,7 +90,7 @@ export function AboutSection() {
             >
               <div className="relative h-full w-full">
                 <Image
-                  src="/Our Products/nonferrous_images/image35.png"
+                  src="/Our Products/nonferrous_images/image1.jpeg"
                   alt="Tabib Al Arabia Facility"
                   fill
                   className="object-cover rounded-2xl transform hover:scale-105 transition-transform duration-500"
