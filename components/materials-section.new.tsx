@@ -33,7 +33,7 @@ export function MaterialsSection() {
     {
       category: "Non-Ferrous Metals",
       items: ["Copper", "Aluminum", "Brass", "Stainless Steel", "Lead", "Zinc"],
-      image: "/Our Products/nonferrous_images/image24.jpeg",
+      image: "/Our Products/nonferrous_images/image40.jpeg",
       description: "Premium non-ferrous metals including copper, aluminum, and brass materials.",
     },
     {
@@ -79,7 +79,7 @@ export function MaterialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+              className="group relative rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
             >
               <div className="relative h-64 overflow-hidden">
                 <Image
@@ -87,9 +87,9 @@ export function MaterialsSection() {
                   alt={material.category}
                   fill
                   style={{ objectFit: "cover" }}
-                  className="transform group-hover:scale-110 transition-transform duration-500"
+                  className="transform group-hover:scale-110 transition-transform duration-500 brightness-90 group-hover:brightness-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent/20">
                   <div className="absolute bottom-0 p-6">
                     <h3 className="text-2xl font-semibold text-white mb-2">{material.category}</h3>
                     <p className="text-gray-200 text-sm">{material.description}</p>
