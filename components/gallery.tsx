@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { X } from "lucide-react"
+import { getImagesFromDirectory } from "@/utils/image-utils"
 
 interface GalleryProps {
   isOpen: boolean
@@ -10,41 +11,103 @@ interface GalleryProps {
   category?: string
 }
 
-const getImagesForCategory = (category?: string) => {
-  // Ferrous images (using .png extension)
-  const ferrousImageNumbers = [1, 2, 4, 6, 9]
-  const ferrousImages = ferrousImageNumbers.map(num => 
-    `/Our Products/ferrous_images/image${num}.png`
-  )
+export function Gallery({ isOpen, onClose, category }: GalleryProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [ferrousImages, setFerrousImages] = useState<string[]>([])
+  const [nonFerrousImages, setNonFerrousImages] = useState<string[]>([])
 
-  // Non-ferrous images (using .jpeg extension)
-  const nonFerrousImageNumbers = [
-    1, 3, 4, 5, 8, 10, 11, 12, 13, 16, 17, 18, 20, 21, 22, 23, 24, 26, 27, 29, 30,
-    31, 32, 35, 36, 37, 38, 39, 40, 41, 42, 43, 45, 48, 49, 50, 52, 53, 54, 55,
-    56, 58, 59, 60, 63, 65, 66, 68, 72, 73, 75, 76, 77, 78, 79, 82, 85, 87, 88,
-    90, 91, 94, 96, 97, 98, 99, 100
-  ]
-  const nonFerrousImages = nonFerrousImageNumbers.map(num => 
-    `/Our Products/nonferrous_images/image${num}.jpeg`
-  )
+  useEffect(() => {
+    // Ferrous images (using .png extension)
+    const ferrous = getImagesFromDirectory('Our Products/ferrous_images')
+    setFerrousImages(ferrous)
 
-  if (!category || category === "All Products") {
-    return [...ferrousImages, ...nonFerrousImages]
-  } else if (category === "Ferrous Metals") {
-    return ferrousImages
-  } else if (category === "Non-Ferrous Metals") {
-    return nonFerrousImages
+    // Non-ferrous images (using .jpeg extension)
+    const nonFerrous = getImagesFromDirectory('Our Products/nonferrous_images')
+    setNonFerrousImages(nonFerrous)
+  }, [])
+
+  const images = !category || category === "All Products"
+    ? [...ferrousImages, ...nonFerrousImages]
+    : category === "Ferrous Metals"
+    ? ferrousImages
+    : category === "Non-Ferrous Metals"
+    ? nonFerrousImages
+    : []
+
+  const handlePrevious = () => {
+    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
   }
-  return []
+
+  const handleNext = () => {
+    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
+  }
+
+  if (!isOpen) return null
+
+  return (
+    <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 text-white hover:text-gray-300"
+      >
+        <X className="h-6 w-6" />
+      </button>
+
+      {images.length > 0 && (
+        <div className="relative max-w-4xl w-full aspect-video">
+          <Image
+            src={images[currentImageIndex]}
+            alt={`Gallery image ${currentImageIndex + 1}`}
+            fill
+            className="object-contain"
+            priority
+          />
+          <div className="absolute inset-0 flex items-center justify-between p-4">
+            <button
+              onClick={handlePrevious}
+              className="p-2 text-white hover:text-gray-300"
+            >
+              <X className="h-6 w-6 rotate-45" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="p-2 text-white hover:text-gray-300"
+            >
+              <X className="h-6 w-6 -rotate-45" />
+            </button>
+          </div>
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white">
+            {currentImageIndex + 1} / {images.length}
+          </div>
+        </div>
+      )}
+    </div>
+  )
 }
 
 export function Gallery({ isOpen, onClose, category }: GalleryProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [ferrousImages, setFerrousImages] = useState<string[]>([])
+  const [nonFerrousImages, setNonFerrousImages] = useState<string[]>([])
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
-  const [images, setImages] = useState<string[]>([])
 
   useEffect(() => {
-    setImages(getImagesForCategory(category))
-  }, [category])
+    // Ferrous images (using .png extension)
+    const ferrous = getImagesFromDirectory('Our Products/ferrous_images')
+    setFerrousImages(ferrous)
+
+    // Non-ferrous images (using .jpeg extension)
+    const nonFerrous = getImagesFromDirectory('Our Products/nonferrous_images')
+    setNonFerrousImages(nonFerrous)
+  }, [])
+
+  const images = !category || category === "All Products"
+    ? [...ferrousImages, ...nonFerrousImages]
+    : category === "Ferrous Metals"
+    ? ferrousImages
+    : category === "Non-Ferrous Metals"
+    ? nonFerrousImages
+    : []
 
   if (!isOpen) return null
 
@@ -76,6 +139,7 @@ export function Gallery({ isOpen, onClose, category }: GalleryProps) {
                   alt={`Material ${index + 1}`}
                   fill
                   className="object-cover transform group-hover:scale-110 transition-transform duration-300"
+                  priority={index < 8}
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
               </div>
@@ -96,6 +160,7 @@ export function Gallery({ isOpen, onClose, category }: GalleryProps) {
               width={1200}
               height={800}
               className="object-contain w-full h-full rounded-lg"
+              priority
             />
             <button
               onClick={() => setSelectedImage(null)}

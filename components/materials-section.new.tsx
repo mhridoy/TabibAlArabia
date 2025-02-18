@@ -1,15 +1,22 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { MaterialsGallery } from "./materials-gallery"
+import { getImagesFromDirectory } from "@/utils/image-utils"
 
 export function MaterialsSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<string>("") 
+  const [nonFerrousImages, setNonFerrousImages] = useState<string[]>([])
+
+  useEffect(() => {
+    const images = getImagesFromDirectory('Our Products/nonferrous_images');
+    setNonFerrousImages(images);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -23,6 +30,12 @@ export function MaterialsSection() {
     setIsGalleryOpen(true)
   }
 
+  const getRandomImage = (images: string[]) => {
+    if (images.length === 0) return '';
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
+  }
+
   const materials = [
     {
       category: "Ferrous Metals",
@@ -33,7 +46,7 @@ export function MaterialsSection() {
     {
       category: "Non-Ferrous Metals",
       items: ["Copper", "Aluminum", "Brass", "Stainless Steel", "Lead", "Zinc"],
-      image: "/Our Products/nonferrous_images/image3.jpeg",
+      image: nonFerrousImages.length > 0 ? getRandomImage(nonFerrousImages) : "/Our Products/nonferrous_images/image3.jpeg",
       description: "Premium non-ferrous metals including copper, aluminum, and brass materials.",
     },
     {
