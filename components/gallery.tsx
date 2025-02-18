@@ -12,94 +12,29 @@ interface GalleryProps {
 }
 
 export function Gallery({ isOpen, onClose, category }: GalleryProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [ferrousImages, setFerrousImages] = useState<string[]>([])
-  const [nonFerrousImages, setNonFerrousImages] = useState<string[]>([])
-
-  useEffect(() => {
-    // Ferrous images (using .png extension)
-    const ferrous = getImagesFromDirectory('Our Products/ferrous_images')
-    setFerrousImages(ferrous)
-
-    // Non-ferrous images (using .jpeg extension)
-    const nonFerrous = getImagesFromDirectory('Our Products/nonferrous_images')
-    setNonFerrousImages(nonFerrous)
-  }, [])
-
-  const images = !category || category === "All Products"
-    ? [...ferrousImages, ...nonFerrousImages]
-    : category === "Ferrous Metals"
-    ? ferrousImages
-    : category === "Non-Ferrous Metals"
-    ? nonFerrousImages
-    : []
-
-  const handlePrevious = () => {
-    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-  }
-
-  const handleNext = () => {
-    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
-  }
-
-  if (!isOpen) return null
-
-  return (
-    <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-      <button
-        onClick={onClose}
-        className="absolute top-4 right-4 text-white hover:text-gray-300"
-      >
-        <X className="h-6 w-6" />
-      </button>
-
-      {images.length > 0 && (
-        <div className="relative max-w-4xl w-full aspect-video">
-          <Image
-            src={images[currentImageIndex]}
-            alt={`Gallery image ${currentImageIndex + 1}`}
-            fill
-            className="object-contain"
-            priority
-          />
-          <div className="absolute inset-0 flex items-center justify-between p-4">
-            <button
-              onClick={handlePrevious}
-              className="p-2 text-white hover:text-gray-300"
-            >
-              <X className="h-6 w-6 rotate-45" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="p-2 text-white hover:text-gray-300"
-            >
-              <X className="h-6 w-6 -rotate-45" />
-            </button>
-          </div>
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white">
-            {currentImageIndex + 1} / {images.length}
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
-
-export function Gallery({ isOpen, onClose, category }: GalleryProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [ferrousImages, setFerrousImages] = useState<string[]>([])
   const [nonFerrousImages, setNonFerrousImages] = useState<string[]>([])
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   useEffect(() => {
-    // Ferrous images (using .png extension)
-    const ferrous = getImagesFromDirectory('Our Products/ferrous_images')
-    setFerrousImages(ferrous)
+    const loadImages = async () => {
+      try {
+        // Ferrous images (using .png extension)
+        const ferrous = getImagesFromDirectory('Our Products/ferrous_images')
+        setFerrousImages(ferrous)
 
-    // Non-ferrous images (using .jpeg extension)
-    const nonFerrous = getImagesFromDirectory('Our Products/nonferrous_images')
-    setNonFerrousImages(nonFerrous)
-  }, [])
+        // Non-ferrous images (using .jpeg extension)
+        const nonFerrous = getImagesFromDirectory('Our Products/nonferrous_images')
+        setNonFerrousImages(nonFerrous)
+      } catch (error) {
+        console.error('Error loading images:', error)
+      }
+    }
+
+    if (isOpen) {
+      loadImages()
+    }
+  }, [isOpen])
 
   const images = !category || category === "All Products"
     ? [...ferrousImages, ...nonFerrousImages]
@@ -163,7 +98,10 @@ export function Gallery({ isOpen, onClose, category }: GalleryProps) {
               priority
             />
             <button
-              onClick={() => setSelectedImage(null)}
+              onClick={(e) => {
+                e.stopPropagation()
+                setSelectedImage(null)
+              }}
               className="absolute top-6 right-6 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
             >
               <X className="w-6 h-6 text-white" />
