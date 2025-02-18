@@ -5,20 +5,19 @@ import { useRef, useState } from "react"
 import Image from "next/image"
 
 const getImagesForCategory = () => {
-  // Ferrous images are numbered 1-20 (missing 17)
-  const ferrousImages = Array.from({ length: 19 }, (_, i) => {
+  // Ferrous images are numbered 1-20
+  const ferrousImages = Array.from({ length: 20 }, (_, i) => {
     const num = i + 1
-    if (num >= 17) return `/Our Products/ferrous_images/image${num + 1}.png`
-    return `/Our Products/ferrous_images/image${num}.png`
+    return `/Our Products/ferrous_images/image${num}.jpeg`
   })
 
   // Non-ferrous images have specific numbers
   const nonFerrousImageNumbers = [
-    1, 2, 3, 4, 10, 14, 24, 27, 29, 30, 34, 35, 37, 38, 39, 40, 41,
-    54, 58, 59, 60, 61, 62, 65, 69, 70, 71, 72, 73, 74, 75
+    1, 3, 4, 10, 24, 27, 29, 30, 35, 37, 38, 39, 40, 41,
+    54, 58, 59, 60, 65, 72, 73
   ]
   const nonFerrousImages = nonFerrousImageNumbers.map(num => 
-    `/Our Products/nonferrous_images/image${num}.png`
+    `/Our Products/nonferrous_images/image${num}.jpeg`
   )
 
   return [...ferrousImages, ...nonFerrousImages]
