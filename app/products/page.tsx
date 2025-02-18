@@ -77,7 +77,7 @@ export default function ProductsPage() {
                 alt={`Metal Product ${index + 1}`}
                 fill
                 className="object-cover transform group-hover:scale-110 transition-transform duration-300"
-                onError={(e: any) => {
+                onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                   // Try next possible path when image fails to load
                   const currentSrc = e.currentTarget.src;
                   const paths = [
