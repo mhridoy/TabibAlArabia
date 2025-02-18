@@ -12,7 +12,7 @@ interface GalleryProps {
 
 const getImagesForCategory = (category?: string) => {
   // Ferrous images (using .png extension)
-  const ferrousImageNumbers = [1, 2, 3, 5, 7, 8, 10]
+  const ferrousImageNumbers = [1, 2, 4, 6, 9]
   const ferrousImages = ferrousImageNumbers.map(num => 
     `/Our Products/ferrous_images/image${num}.png`
   )
