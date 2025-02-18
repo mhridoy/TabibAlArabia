@@ -5,27 +5,24 @@ import { useRef, useState } from "react"
 import Image from "next/image"
 
 const getImagesForCategory = () => {
-  // Helper function to check multiple possible paths for an image
-  const getImagePath = (num: number) => {
-    const possiblePaths = [
-      `/Our Products/images/image${num}.jpeg`,
-      `/Our Products/ferrous_images/image${num}.png`,
-      `/Our Products/ferrous_images/image${num}.jpeg`,
-      `/Our Products/nonferrous_images/image${num}.jpeg`,
-      `/Our Products/nonferrous_images/image${num}.png`
-    ]
-    return possiblePaths[0] // We'll handle fallback in the Image component
-  }
+  // Ferrous images (only available PNGs)
+  const ferrousImageNumbers = [1, 2, 3, 5, 7, 8, 10]
+  const ferrousImages = ferrousImageNumbers.map(num => 
+    `/Our Products/ferrous_images/image${num}.png`
+  )
 
-  // Get all image numbers from the images directory
-  const imageNumbers = [
-    1, 2, 3, 4, 5, 7, 8, 10, 11, 12, 13, 16, 17, 18, 20, 21, 22, 23, 24,
+  // Non-ferrous images from the images directory
+  const nonFerrousImageNumbers = [
+    1, 2, 3, 4, 10, 11, 12, 13, 16, 17, 18, 20, 21, 22, 23, 24,
     26, 27, 29, 30, 31, 32, 35, 36, 37, 38, 39, 40, 41, 42, 43, 45, 48,
     49, 50, 52, 53, 54, 55, 56, 58, 59, 60, 63, 65, 66, 68, 72, 73, 75,
     76, 77, 78, 79, 82, 85, 87, 88, 90, 91, 94, 96, 97, 98, 99, 100
   ]
+  const nonFerrousImages = nonFerrousImageNumbers.map(num => 
+    `/Our Products/images/image${num}.jpeg`
+  )
 
-  return imageNumbers.map(num => getImagePath(num))
+  return [...ferrousImages, ...nonFerrousImages]
 }
 
 export default function ProductsPage() {
@@ -78,19 +75,7 @@ export default function ProductsPage() {
                 fill
                 className="object-cover transform group-hover:scale-110 transition-transform duration-300"
                 onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-                  // Try next possible path when image fails to load
-                  const currentSrc = e.currentTarget.src;
-                  const paths = [
-                    `/Our Products/images/image${index + 1}.jpeg`,
-                    `/Our Products/ferrous_images/image${index + 1}.png`,
-                    `/Our Products/ferrous_images/image${index + 1}.jpeg`,
-                    `/Our Products/nonferrous_images/image${index + 1}.jpeg`,
-                    `/Our Products/nonferrous_images/image${index + 1}.png`
-                  ];
-                  const currentIndex = paths.findIndex(path => currentSrc.endsWith(path));
-                  if (currentIndex < paths.length - 1) {
-                    e.currentTarget.src = paths[currentIndex + 1];
-                  }
+                  console.error('Image failed to load:', e.currentTarget.src);
                 }}
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
