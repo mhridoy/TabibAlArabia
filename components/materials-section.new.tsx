@@ -33,7 +33,7 @@ export function MaterialsSection() {
     {
       category: "Non-Ferrous Metals",
       items: ["Copper", "Aluminum", "Brass", "Stainless Steel", "Lead", "Zinc"],
-      image: "/Our Products/nonferrous_images/image1.jpeg",
+      image: "/Our Products/nonferrous_images/image3.jpeg",
       description: "Premium non-ferrous metals including copper, aluminum, and brass materials.",
     },
     {
